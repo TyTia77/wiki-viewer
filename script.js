@@ -2,46 +2,19 @@ var app = angular.module('WikiViewer', []);
 
 app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
-    $('.search-icon').on("click", function(){
-
-        document.querySelector('.search-input').classList.remove('animate-search-out');
-        document.querySelector('.search-handle').classList.remove('animate-lower-out');
-        document.querySelector('.cross-left').classList.remove('animate-cross-left-out');
-        document.querySelector('.cross-right').classList.remove('animate-cross-right-out');
-
-        setTimeout(function(){
-            document.querySelector('.search-input').classList.add('animate-search-in');
-            document.querySelector('.search-input').removeAttribute('disabled');
-            document.querySelector('.search-input').focus();
-            document.querySelector('.search-handle').classList.add('animate-lower-in');
-            document.querySelector('.cross-left').classList.add('animate-cross-left-in');
-            document.querySelector('.cross-right').classList.add('animate-cross-right-in');
-        },1)
-
+    $('.search-icon').on("click", function(ev){
+        if(ev.target.className === 'cross'){
+            $('.search-input').removeClass('expand-search');
+            $('form').removeClass('open');
+            $('.search-handle').removeClass('collapse-search-handle');
+            $('.search-input').attr('disabled', '');
+        } else{
+            $('.search-input').addClass('expand-search');
+            $('form').addClass('open');
+            $('.search-handle').addClass('collapse-search-handle');
+            $('.search-input').attr('disabled', false);
+        }
     });
-
-    $('.cross').on('click', function(){
-        document.querySelector('.search-input').classList.remove('animate-search-in');
-        document.querySelector('.search-handle').classList.remove('animate-lower-in');
-        document.querySelector('.cross-left').classList.remove('animate-cross-left-in');
-        document.querySelector('.cross-right').classList.remove('animate-cross-right-in');
-
-        setTimeout(function(){
-            document.querySelector('.search-input').setAttribute('disabled', '');
-            document.querySelector('.search-input').classList.add('animate-search-out');
-            document.querySelector('.search-handle').classList.add('animate-lower-out');
-            document.querySelector('.cross-left').classList.add('animate-cross-left-out');
-            document.querySelector('.cross-right').classList.add('animate-cross-right-out');
-        },1);
-
-    });
-
-
-    var handleAnimations = function(){
-
-    }
-
-
 
     $scope.search = function(){
 
@@ -73,5 +46,5 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
                 }
 
             });
-    }
+    };
 }]);
