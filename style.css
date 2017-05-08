@@ -1,0 +1,182 @@
+html, body{
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    background-color: #092B40;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container-fluid{
+    position: absolute;
+    width: 100%;
+    min-width: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.height{
+    height: 100%;
+}
+
+.random-text{
+    text-transform: capitalize;
+    transition-duration: .25s;
+}
+
+.random-text a{
+    display: block;
+    margin-top: 15px;
+    color: white;
+    margin-bottom: 15px!important;
+}
+
+.random-text a:hover{
+    text-decoration: none;
+}
+
+.random-text:hover{
+    cursor: pointer;
+    transform: scale(1.25, 1.25);
+}
+
+input{
+    color: #fff;
+    background-color: inherit;
+    border: 2px solid orange;
+    border-radius: 10px;
+    text-indent: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.search-container{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-input:hover{
+    cursor: pointer;
+}
+
+.search-input{
+    border-radius: 50%;
+    border-width: 3px;
+    width: 30px;
+}
+.search-handle{
+    display: inline-block;
+    position: relative;
+    height: 13px;
+    top: 15px;
+    left: -7px;
+    border-left: 3px solid orange;
+    transform: rotate(-45deg);
+}
+
+.search{
+    transition-duration: .2s;
+}
+.cross{
+    position: relative;
+    top: -39px;
+    left: 119px;
+}
+.results{
+    position: relative;
+    opacity: 0;
+    top: 10px;
+    padding: 5px;
+    animation: fade .4s ease-in forwards;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: white;
+    color: black;
+}
+
+.cross-left{
+    display: inline-block;
+    position: relative;
+    height: 0;
+    top: 6px;
+    left: -35px;
+    border-left: 3px solid orange;
+    transform: rotate(-45deg) translateY(20px);
+    transform-origin: top left;
+}
+
+.cross-right{
+    display: inline-block;
+    position: relative;
+    height: 0;
+    top: 4px;
+    left: -35px;
+    border-left: 3px solid orange;
+    transform: rotate(45deg) translateY(-20px);
+    transform-origin: top left;
+}
+
+.animate-cross-left-in{
+    animation: cross-left .2s ease-in forwards;
+}
+
+.animate-cross-right-in{
+    animation: cross-right .2s ease-in forwards;
+}
+
+.animate-cross-left-out{
+    animation: cross-left .2s ease-in reverse;
+}
+
+.animate-cross-right-out{
+    animation: cross-right .2s ease-in reverse;
+}
+
+.animate-search-in{
+    animation: search .2s ease-in forwards;
+}
+
+.animate-search-out{
+    animation: search .2s ease-in reverse;
+}
+
+.animate-lower-out{
+    animation: move .2s ease-in reverse;
+}
+
+.animate-lower-in{
+    animation: move .2s ease-in forwards;
+}
+
+@keyframes fade{
+    100% {opacity: 1}
+}
+
+@keyframes move {
+    0% {height: 13px}
+    100% {height: 0}
+}
+
+@keyframes search {
+    0% {border-radius: 50%; width: 30px}
+    100% {width: 200px; border-radius: 10px}
+}
+
+@keyframes cross-left{
+    0% {height: 0; transform: rotate(-45deg) translateY(20px)}
+    50% {height: 10px; transform: rotate(-45deg) translateY(10px)}
+    100% {height: 15px; transform: rotate(-45deg) translateY(0)}
+}
+
+@keyframes cross-right{
+    0% {height: 0; transform: rotate(45deg) translateY(-20px)}
+    50% {height: 10px; transform: rotate(45deg) translateY(-10px)}
+    100% {height: 15px; transform: rotate(45deg) translateY(0)}
+}

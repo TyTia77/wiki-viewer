@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="wikipedia_globe_icon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="script.js"></script>
+    <title>Wikipedia Viewer</title>
+</head>
+<body ng-app="WikiViewer" ng-controller="mainCtrl">
+    <div class="container-fluid">
+        <div class="row col-xs-12 text-center random-text">
+            <a
+                href="https://en.wikipedia.org/wiki/Special:Random"
+                target="_blank">randomly generated article</a>
+        </div>
+
+        <div class="row col-xs-12 search-container">
+            <span class="search-icon">
+                <form ng-submit="search()">
+                    <input class="search-input" type="text" disabled>
+                    <span class="search-handle">&nbsp;</span>
+                </form>
+            </span>
+            <span class="cross">
+                <span class="cross-left">&nbsp;</span>
+                <span class="cross-right">&nbsp;</span>
+            </span>
+        </div>
+
+        <div class="row col-xs-12 text-center" ng-show="!searchActive">
+            click icon to search
+        </div>
+
+        <div class="row results col-xs-12" ng-show="searchActive" ng-repeat="item in results">
+            <a href="{{item.url}}" target="_blank">{{item.title}}</a>
+        </div>
+    </div>
+</body>
+</html>
