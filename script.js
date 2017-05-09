@@ -4,13 +4,14 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
     $('.search-input').on("click", function(){
         $('.search-input').addClass('expand-search');
-        $('form').addClass('open');
+        $('.fa').css({'transform': 'translateX(-40px)'});
         $('.search-icon').addClass('open');
     });
 
-    $('.cross').on('click', function(){
+    $('.fa').on('click', function(){
+        $(this).css({'transform': 'translateX(-10000px)'});
+        $('.search-input').val('');
         $('.search-input').removeClass('expand-search');
-        $('form').removeClass('open');
         $('.search-icon').removeClass('open');
     });
 
