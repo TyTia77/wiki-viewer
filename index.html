@@ -17,28 +17,27 @@
             <div class="row col-xs-12 text-center random-text">
                 <a
                     href="https://en.wikipedia.org/wiki/Special:Random"
-                    target="_blank">randomly generated article</a>
+                    target="_blank">view a random article</a>
             </div>
 
-            <div class="row col-xs-12 search-container">
-                <span class="search-icon">
+            <div class="row search-container">
+                <span class="col-xs-12 search-icon">
                     <form ng-submit="search()">
-                        <input class="search-input" type="text" disabled>
-                        <span class="search-handle">&nbsp;</span>
-                        <span class="cross">&nbsp;</span>
-                        <span class="cross">&nbsp;</span>
+                        <input class="search-input" type="text">
+                        <span class="cross"></span>
                     </form>
                 </span>
 
             </div>
-
-
-            <div class="row col-xs-12 text-center" ng-show="!searchActive">
+            <div class="row col-xs-12 text-center search-description" ng-show="!searchActive">
                 click icon to search
             </div>
 
             <div class="row results col-xs-12" ng-show="searchActive" ng-repeat="item in results">
-                <a href="{{item.url}}" target="_blank">{{item.title}}</a>
+                <a class="result-item" href="{{item.url}}" target="_blank">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.info}}</p>
+                </a>
             </div>
         </div>
     </body>
