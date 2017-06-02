@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row col-xs-12 text-center random-text">
+        <a
+            href="https://en.wikipedia.org/wiki/Special:Random"
+            target="_blank">view a random article</a>
+    </div>
+
+    <div class="row search-container">
+        <span class="col-xs-12 search-icon">
+            <form ng-submit="search()">
+                <input class="search-input" type="text">
+                <span class="fa fa-times fa-3x" aria-hidden="true"></span>
+            </form>
+        </span>
+
+    </div>
+    <div class="row col-xs-12 text-center search-description" ng-show="!searchActive">
+        click icon to search
+    </div>
+
+    <div class="row results col-xs-12" ng-show="searchActive" ng-repeat="item in results">
+        <a class="result-item" href="{{item.url}}" target="_blank">
+            <h3>{{item.title}}</h3>
+            <p>{{item.info}}</p>
+        </a>
+    </div>
+</div>

@@ -2,13 +2,13 @@ var app = angular.module('WikiViewer', []);
 
 app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
-    $('.search-input').on("click", function(){
+    $(document).on("click", ".search-input", function(){
         $('.search-input').addClass('expand-search');
         $('.fa').css({'transform': 'translateX(-40px)'});
         $('.search-icon').addClass('open');
     });
 
-    $('.fa').on('click', function(){
+    $(document).on("click", ".fa", function(){
         $(this).css({'transform': 'translateX(-10000px)'});
         $('.search-input').val('');
         $('.search-input').removeClass('expand-search');

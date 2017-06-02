@@ -16,6 +16,7 @@ html, body{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    animation: fade .5s ease forwards;
 }
 
 /*give to container fluid after search*/
@@ -127,7 +128,6 @@ input::-ms-clear {
 .results{
     position: relative;
     display: block;
-    opacity: 0;
     top: 20px;
     padding: 5px;
     animation: fade .4s ease-in forwards;
@@ -161,5 +161,6 @@ input::-ms-clear {
 }
 
 @keyframes fade{
+    0% {opacity: 0}
     100% {opacity: 1}
 }
